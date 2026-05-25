@@ -287,7 +287,7 @@ export default function Navbar({ currentTheme, setTheme }) {
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.id)}
                       className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
-                      style={{ fontSize: '1.2rem' }}
+                      style={{ fontSize: '1rem' }}
                     >
                       {link.name}
                     </a>

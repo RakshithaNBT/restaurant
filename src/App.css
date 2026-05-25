@@ -605,13 +605,11 @@
     gap: 0.35rem;
   }
   .menu-tab-label {
-    display: none;
-  }
-  .menu-tab-emoji {
-    font-size: 1.3rem;
+    display: block;
   }
   .menu-tab-btn {
-    padding: 0.6rem 0.8rem;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.6rem;
   }
 }
 
@@ -1704,7 +1702,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 1.5rem;
     transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1000;
   }

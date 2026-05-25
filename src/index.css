@@ -731,3 +731,12 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.8rem !important;
   }
 }
+
+/* Fix Swiper Pagination Alignment */
+.testimonials-swiper {
+  padding-bottom: 3rem !important;
+}
+.testimonials-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+

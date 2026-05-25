@@ -71,9 +71,19 @@ const perImgVariants = [
 export default function Menu() {
   const [activeTab, setActiveTab] = useState('south-indian');
   const timerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 992);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const startTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
+    if (window.innerWidth <= 992) return; // Disable automatic sliding on mobile/tablet
+    
     timerRef.current = setInterval(() => {
       setActiveTab(prev => {
         const idx = categories.findIndex(c => c.id === prev);
@@ -153,10 +163,10 @@ export default function Menu() {
                 <motion.div
                   key={item.id}
                   className="menu-card-premium"
-                  initial={cv.hidden}
-                  animate={cv.visible}
-                  exit={cv.exit}
-                  whileHover={{
+                  initial={isMobile ? false : cv.hidden}
+                  animate={isMobile ? cv.visible : cv.visible}
+                  exit={isMobile ? false : cv.exit}
+                  whileHover={isMobile ? {} : {
                     y: -8,
                     scale: 1.03,
                     boxShadow: '0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(var(--primary-gold-rgb), 0.2)',
@@ -169,9 +179,9 @@ export default function Menu() {
                       src={item.image}
                       alt={item.name}
                       className="menu-card-img"
-                      initial={iv.hidden}
-                      animate={iv.visible}
-                      whileHover={{ scale: 1.1, rotate: 2, transition: { duration: 0.4 } }}
+                      initial={isMobile ? false : iv.hidden}
+                      animate={isMobile ? iv.visible : iv.visible}
+                      whileHover={isMobile ? {} : { scale: 1.1, rotate: 2, transition: { duration: 0.4 } }}
                     />
                     {item.tag && <span className="menu-card-badge">{item.tag}</span>}
                     <div className="menu-card-img-overlay"></div>
