@@ -4,6 +4,14 @@ import { Calendar } from 'lucide-react';
 
 export default function FloatingBookButton() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <motion.div
@@ -13,8 +21,9 @@ export default function FloatingBookButton() {
       transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 1 }}
       style={{
         position: 'absolute',
-        bottom: '4rem',
-        right: '8rem',
+        bottom: isMobile ? '2rem' : '3.5rem',
+        right: isMobile ? '50%' : '7.8rem',
+        marginRight: isMobile ? '-32px' : '0',
         zIndex: 900,
         display: 'flex',
         alignItems: 'center',

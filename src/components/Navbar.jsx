@@ -242,6 +242,7 @@ export default function Navbar({ currentTheme, setTheme }) {
           className="mobile-nav-toggle"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle navigation menu"
+          style={{ position: 'relative', zIndex: 1000 }}
         >
           {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
@@ -273,14 +274,7 @@ export default function Navbar({ currentTheme, setTheme }) {
                 transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                 onClick={(e) => e.stopPropagation()}
               >
-                <div style={{ alignSelf: 'flex-end', padding: '1rem 2rem 0 0' }}>
-                  <button
-                    className="mobile-nav-toggle"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <X size={28} />
-                  </button>
-                </div>
+
                 
                 {navLinks.map((link, index) => (
                   <motion.li

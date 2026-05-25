@@ -711,3 +711,23 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px !important;
   transition: var(--transition-fast) !important;
 }
+
+/* Comprehensive Mobile View Optimizations */
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 1rem !important;
+  }
+  .section-title {
+    font-size: 2.2rem !important;
+  }
+  .about-grid, .celebration-grid, .menu-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+}

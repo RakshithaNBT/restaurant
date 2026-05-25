@@ -292,8 +292,16 @@ function useParticles(canvasRef) {
    ══════════════════════════════════════ */
 export default function Preloader({ onComplete }) {
   const [phase, setPhase] = useState('hat-enter'); // hat-enter | utensils-enter | split | hat-disappear | reveal
+  const [isMobile, setIsMobile] = useState(false);
   const canvasRef = useRef(null);
   useParticles(canvasRef);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const timers = [
@@ -306,39 +314,44 @@ export default function Preloader({ onComplete }) {
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);
 
+  const splitDist = isMobile ? 120 : 240;
+  const spoonScale = isMobile ? 0.6 : 0.9;
+  const hatScale = isMobile ? 0.5 : 0.7;
+  const hatHideScale = isMobile ? 0.6 : 0.85;
+
   /* ── Per-phase animations ── */
   const chefHatAnim = {
     'hat-enter': {
       x: '-50%',
       y: 0,
       opacity: 1,
-      scale: 1,
+      scale: hatScale,
       transition: { type: 'spring', damping: 15, stiffness: 80 }
     },
     'utensils-enter': {
       x: '-50%',
       y: 0,
       opacity: 1,
-      scale: 1
+      scale: hatScale
     },
     'split': {
       x: '-50%',
       y: 0,
       opacity: 1,
-      scale: 1
+      scale: hatScale
     },
     'hat-disappear': {
       x: '-50%',
       y: -20,
       opacity: 0,
-      scale: 0.85,
+      scale: hatHideScale,
       transition: { duration: 0.8, ease: 'easeInOut' }
     },
     'reveal': {
       x: '-50%',
       y: -20,
       opacity: 0,
-      scale: 0.85
+      scale: hatHideScale
     }
   };
 
@@ -348,14 +361,14 @@ export default function Preloader({ onComplete }) {
       x: 0,
       y: 350,
       rotate: 0,
-      scale: 0.9,
+      scale: spoonScale,
     },
     'utensils-enter': {
       opacity: 1,
       x: -45,
       y: 70,
       rotate: -30,
-      scale: 0.9,
+      scale: spoonScale,
       transition: {
         type: 'spring',
         damping: 18,
@@ -364,10 +377,10 @@ export default function Preloader({ onComplete }) {
     },
     'split': {
       opacity: 1,
-      x: -240,
+      x: -splitDist,
       y: 70,
       rotate: 0,
-      scale: 0.9,
+      scale: spoonScale,
       transition: {
         duration: 1.2,
         ease: [0.25, 1, 0.5, 1]
@@ -375,14 +388,14 @@ export default function Preloader({ onComplete }) {
     },
     'hat-disappear': {
       opacity: 1,
-      x: -240,
+      x: -splitDist,
       y: 70,
       rotate: 0,
-      scale: 0.9,
+      scale: spoonScale,
     },
     'reveal': {
       opacity: 0,
-      scale: 0.8,
+      scale: spoonScale * 0.9,
       transition: { duration: 0.8, ease: 'easeInOut' }
     }
   };
@@ -393,14 +406,14 @@ export default function Preloader({ onComplete }) {
       x: 0,
       y: 350,
       rotate: 0,
-      scale: 0.9,
+      scale: spoonScale,
     },
     'utensils-enter': {
       opacity: 1,
       x: 45,
       y: 70,
       rotate: 30,
-      scale: 0.9,
+      scale: spoonScale,
       transition: {
         type: 'spring',
         damping: 18,
@@ -409,10 +422,10 @@ export default function Preloader({ onComplete }) {
     },
     'split': {
       opacity: 1,
-      x: 240,
+      x: splitDist,
       y: 70,
       rotate: 0,
-      scale: 0.9,
+      scale: spoonScale,
       transition: {
         duration: 1.2,
         ease: [0.25, 1, 0.5, 1]
@@ -420,14 +433,14 @@ export default function Preloader({ onComplete }) {
     },
     'hat-disappear': {
       opacity: 1,
-      x: 240,
+      x: splitDist,
       y: 70,
       rotate: 0,
-      scale: 0.9,
+      scale: spoonScale,
     },
     'reveal': {
       opacity: 0,
-      scale: 0.8,
+      scale: spoonScale * 0.9,
       transition: { duration: 0.8, ease: 'easeInOut' }
     }
   };
@@ -490,7 +503,7 @@ export default function Preloader({ onComplete }) {
         {/* Chef Hat */}
         <motion.div
           className="chef-hat-wrapper"
-          initial={{ x: '-50%', y: '-100vh', opacity: 0, scale: 0.7 }}
+          initial={{ x: '-50%', y: '-100vh', opacity: 0, scale: hatScale * 0.7 }}
           animate={chefHatAnim[phase]}
         >
           <ChefHatSVG />

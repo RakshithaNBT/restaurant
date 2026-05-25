@@ -2889,3 +2889,65 @@
   }
 }
 
+
+/* Mobile Fixes added by AI */
+@media (max-width: 992px) {
+  .nav-right-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 0 !important;
+  }
+  .header.scrolled {
+    padding: 0.5rem 0 !important;
+  }
+  .logo-img {
+    height: 45px !important;
+  }
+}
+
+/* Bulletproof video cover */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100dvh !important;
+    background-image: none !important;
+    background-color: #000 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-video {
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    transform: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}

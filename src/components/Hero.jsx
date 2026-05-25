@@ -64,24 +64,13 @@ export default function Hero() {
         muted
         playsInline
         preload="auto"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: 0,
-          willChange: 'transform',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
-        }}
+        className="hero-video"
       >
-        <source src="./hero_bg.mp4" type="video/mp4" />
+        <source src="./hero_bg_compressed.mp4" type="video/mp4" media="(max-width: 768px)" />
+        <source src="./hero_bg_compressed.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay" style={{ zIndex: 1 }}></div>
-      
+
       <div
         className="container hero-content"
         style={{
@@ -90,7 +79,7 @@ export default function Hero() {
           transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
-        <motion.span 
+        <motion.span
           className="hero-subtitle"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,8 +87,8 @@ export default function Hero() {
         >
           Taste Tradition with Luxury
         </motion.span>
-        
-        <motion.h1 
+
+        <motion.h1
           className="hero-title"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,7 +100,7 @@ export default function Hero() {
       </div>
 
       {/* Decorative Warm Light Bottom Transition */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           bottom: 0,
