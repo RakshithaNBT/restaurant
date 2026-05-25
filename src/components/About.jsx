@@ -89,7 +89,7 @@ export default function About() {
           >
             <div className="about-image-container">
               <img 
-                src="/images/about_img.png" 
+                src="./images/about_img.png" 
                 alt="The Gilded Fork Ambience" 
                 className="about-image"
               />

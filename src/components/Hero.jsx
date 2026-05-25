@@ -56,7 +56,7 @@ export default function Hero() {
   const textOpacity = initialAnimDone ? (showText ? 1 : 0) : undefined;
 
   return (
-    <section id="home" className="hero" style={{ backgroundImage: `url('/images/hero_bg.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section id="home" className="hero" style={{ backgroundImage: `url('./images/hero_bg.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <video
         ref={videoRef}
         autoPlay
@@ -78,7 +78,7 @@ export default function Hero() {
           WebkitBackfaceVisibility: 'hidden',
         }}
       >
-        <source src="/hero_bg.mp4" type="video/mp4" />
+        <source src="./hero_bg.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay" style={{ zIndex: 1 }}></div>
       

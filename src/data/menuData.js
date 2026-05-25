@@ -27,7 +27,7 @@ export const menuData = [
     price: 130,
     rating: 4.6,
     category: 'south-indian',
-    image: '/images/medu_vada.png',
+    image: './images/medu_vada.png',
     tag: 'Crispy Classic'
   },
   // NORTH INDIAN
@@ -48,7 +48,7 @@ export const menuData = [
     price: 60,
     rating: 4.7,
     category: 'north-indian',
-    image: '/images/butter_naan.png',
+    image: './images/butter_naan.png',
     tag: 'Tandoor Classic'
   },
   {
@@ -102,7 +102,7 @@ export const menuData = [
     price: 490,
     rating: 4.9,
     category: 'non-veg',
-    image: '/images/tandoori_murgh.png',
+    image: './images/tandoori_murgh.png',
     tag: 'Best Seller'
   },
   {
@@ -262,7 +262,7 @@ export const celebrationPackages = [
     description: 'Make your special day unforgettable with customized balloon décors, gourmet menu selection, live acoustic music, and a dedicated host in our resort pavilion.',
     capacity: '20 - 150 Guests',
     price: 'Starting from ₹1,500/guest',
-    image: '/images/gallery_1.png',
+    image: './images/gallery_1.png',
     features: ['Custom luxury theme setup', 'Premium live buffet', 'Professional photography option', 'Dedicated event coordinator']
   },
   {
@@ -271,7 +271,7 @@ export const celebrationPackages = [
     description: 'Celebrate your journey of love under a glowing canopy of string lights. Includes a private butler, custom candlelit table, floral decorations, and a curated chef special menu.',
     capacity: '2 - 10 Guests',
     price: 'Starting from ₹8,000/couple',
-    image: '/images/gallery_2.png',
+    image: './images/gallery_2.png',
     features: ['Exclusive candlelit table setup', '5-course personalized menu', 'Complimentary premium welcome mocktails', 'Violin player on request']
   },
   {
@@ -280,7 +280,7 @@ export const celebrationPackages = [
     description: 'Gather your loved ones under our high wooden arches for a luxury feast. Enjoy family-style dining service, customized layout configuration, and customized menu options.',
     capacity: '15 - 80 Guests',
     price: 'Starting from ₹1,200/guest',
-    image: '/images/gallery_3.png',
+    image: './images/gallery_3.png',
     features: ['Comfortable premium seating layout', 'Multi-cuisine grand feast', 'Welcome board & kids play area access', 'Valet parking for all guests']
   }
 ];
@@ -288,28 +288,28 @@ export const celebrationPackages = [
 export const galleryImages = [
   {
     id: 'g1',
-    src: '/images/gallery_1.png',
+    src: './images/gallery_1.png',
     title: 'The Golden Pavilion',
     category: 'Ambience',
     description: 'Premium resort-style seating with warm hanging lanterns and blue cushions.'
   },
   {
     id: 'g2',
-    src: '/images/gallery_2.png',
+    src: './images/gallery_2.png',
     title: 'Nightlit Gazebos',
     category: 'Resort View',
     description: 'Pitched-roof dining structures nestled within lush green tropical gardens.'
   },
   {
     id: 'g3',
-    src: '/images/gallery_3.png',
+    src: './images/gallery_3.png',
     title: 'The Heritage Arch',
     category: 'Indoor Dining',
     description: 'High vaulted wooden ceiling pavilion looking out to the courtyard.'
   },
   {
     id: 'g4',
-    src: '/images/about_img.png',
+    src: './images/about_img.png',
     title: 'Fine Dining Craft',
     category: 'Culinary',
     description: 'Handcrafted gourmet dining setups served with elegant candlelight settings.'

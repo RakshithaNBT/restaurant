@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Brand Panel */}
           <div className="footer-logo-panel">
             <a href="#home" onClick={(e) => handleLinkClick(e, 'home')} className="logo-link" style={{ width: 'fit-content' }}>
-              <img src="/images/logo.jpg" alt="The Gilded Fork" className="logo-img" style={{ height: '60px' }} />
+              <img src="./images/logo.jpg" alt="The Gilded Fork" className="logo-img" style={{ height: '60px' }} />
             </a>
             <p className="footer-tagline">
               An immersive resort-style dining destination in Mysuru, dedicated to heritage gastronomy, premium hot brews, and elegant celebrations under golden-lit pavilions.

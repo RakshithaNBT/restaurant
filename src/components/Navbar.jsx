@@ -201,7 +201,7 @@ export default function Navbar({ currentTheme, setTheme }) {
       <div className="container navbar-container">
         {/* Logo */}
         <a href="#home" onClick={(e) => handleLinkClick(e, 'home')} className="logo-link">
-          <img src="/images/logo.jpg" alt="The Gilded Fork" className="logo-img" />
+          <img src="./images/logo.jpg" alt="The Gilded Fork" className="logo-img" />
         </a>
 
         {/* Desktop Menu */}
